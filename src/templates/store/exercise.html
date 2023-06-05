@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script> 
+
+    <title>Dashboard</title>
+  </head>
+  <body style="background-color:#2C3333" class="text-white">
+    {% comment %} <img src="{% static 'images/product_pics/cheese.webp' %}" /> {% endcomment %}
+    <h1>welcome</h1>
+    <button class="btn btn-primary" onclick="setUserName()">Change user</button>
+
+    <div>
+    <label for="weather">Select the weather type today: </label>
+    <select id="weather">
+      <option value="">--Make a choice--</option>
+      <option value="sunny">Sunny</option>
+      <option value="rainy">Rainy</option>
+      <option value="snowing">Snowing</option>
+      <option value="overcast">Overcast</option>
+    </select>
+
+    <p></p>
+  </div>
+
+
+<label for="theme">Select theme: </label>
+<select id="theme">
+  <option value="black">dark</option>
+  <option value="white">light</option>
+  
+</select>
+
+<label for="theme">Select theme: </label>
+<select id="cal">
+  <option value="january">january</option>
+  <option value="feb">feb</option>
+  <option value="march">march</option>
+  <option value="april">april</option>
+  <option value="may">may</option>
+  <option value="june">june</option>
+  <option value="july">july</option>
+  <option value="august">august</option>
+  <option value="sep">sep</option>
+  <option value="aug">aug</option>
+  <option value="nov">nov</option>
+  <option value="dec">dec</option>
+</select>
+
+  <h1 class="ml-4 mt-4" id='month'></h1>
+
+    <ul class='row text-white'>
+      
+    </ul>
+    <button onclick="data()">click</button>
+
+
+    <input id="srh" type="search" />
+    <button id="search">search</button>
+
+    <p id="srch"></p>
+
+
+
+    <script src="{% static 'scripts/exercise.js' %}"></script>
+    
+  </body>
+</html>

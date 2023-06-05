@@ -1,0 +1,27 @@
+{% extends 'auth/user.html' %} {% block content %}
+
+<div class="m-4">
+  <div class="card card-body">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Products</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for i in products %}
+        <tr>
+          <td>{{i.Product_Name}}</td>
+          <td>{{i.Category}}</td>
+          <td>{{i.Price}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock%}

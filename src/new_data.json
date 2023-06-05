@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Jennifer",
+        "last": "Perry"
+      },
+      "location": {
+        "street": {
+          "number": 9006,
+          "name": "Oak Lawn Ave"
+        },
+        "city": "Adelaide",
+        "state": "New South Wales",
+        "country": "Australia",
+        "postcode": 4092,
+        "coordinates": {
+          "latitude": "-89.6365",
+          "longitude": "4.9087"
+        },
+        "timezone": {
+          "offset": "+5:45",
+          "description": "Kathmandu"
+        }
+      },
+      "email": "jennifer.perry@example.com",
+      "login": {
+        "uuid": "7bbce902-5075-4768-bfcf-95195e82faec",
+        "username": "whitelion385",
+        "password": "royal",
+        "salt": "dBvCzGn7",
+        "md5": "c4bfc77bbca80be04623bc50bc56786e",
+        "sha1": "d12a61ae44c23c572afb92361dc1ff053e0b4c53",
+        "sha256": "8067f41f1a500d35ec073887d8a358593032014728f83c8b3551de7e873f1dbb"
+      },
+      "dob": {
+        "date": "1951-07-26T09:33:03.500Z",
+        "age": 71
+      },
+      "registered": {
+        "date": "2014-10-22T09:33:14.402Z",
+        "age": 8
+      },
+      "phone": "09-5196-8769",
+      "cell": "0446-408-761",
+      "id": {
+        "name": "TFN",
+        "value": "719048540"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/35.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/35.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/35.jpg"
+      },
+      "nat": "AU"
+    }
+  ],
+  "info": {
+    "seed": "a242c8dd366abab4",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

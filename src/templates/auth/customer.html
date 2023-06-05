@@ -1,0 +1,85 @@
+{% extends 'auth/user.html' %}
+{% block content %}
+<div class='m-4 d-flex'> 
+    <div class="card card-body w-50">
+        <h3 class='pb-2'>Contact information</h3>
+        
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No</th>
+          </tr>
+        </thead>
+        <tbody>
+           
+          <tr>
+            <td>{{customer.Customer_Name}}</td>
+            <td>{{customer.Email}}</td>
+            <td>{{customer.Phone_No}}</td>
+          </tr>
+      
+        </tbody>
+      </table>
+    </div>
+
+    <div class='col-md  d-flex justify-content-end'>
+        <div class="card text-white bg-primary w-100">
+          <div class="card-header text-center text-white"><h4>Total Orders</h4></div>
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <h5 class="card-title text-center text-white  ">{{order_count}}</h5>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-body m-4">
+  <div class="d-flex">
+    <form method="get">
+    {{filter.form}}
+    
+    <button type="submit" class="btn btn-primary mx-2">search</button>
+  </form>
+  <a class="btn btn-primary mb-2" href="{% url 'create_order' customer.id %}">Create order</a>
+
+  </div>
+ 
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+      
+          <th scope="col">Products</th>
+          <th scope="col">Category</th>
+          <th scope="col">Note</th>
+          <th scope="col">Date created</th>
+          <th scope="col">Status</th>
+          <th scope="col">Update</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            {% for data in orders %}
+            <tr>
+        
+              <td>{{data.Product_fk}}</td>
+              <td>{{data.Product_fk.Category}}</td>
+              <td>{{data.Product_fk.note}}</td>
+              <td>{{data.CreatedDate}}</td>
+              <td>{{data.status}}</td>
+  
+              <td><a class='btn btn-sm btn-info' href="{% url 'update_order' data.id %}">update</a></td>
+              <td><a class='btn btn-sm btn-danger' href="{% url 'delete_order' data.id %}">delete</a></td>
+  
+            </tr>
+
+            {% endfor %}
+        
+        </tr>
+      </tbody>
+    </table>
+
+</div>
+
+{% endblock%}

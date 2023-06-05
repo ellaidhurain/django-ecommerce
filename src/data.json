@@ -1,0 +1,16 @@
+{
+    "people" :[
+        {
+            "name":"ellai dhurai",
+            "phone":"9987433443",
+            "emails":["e@gmail.com","m@gmail.com"],
+            "has_license": false
+        },
+        {
+            "name":"ellai dhurai",
+            "phone":"9987433443",
+            "emails":null,
+            "has_license": true
+        }
+    ]
+}

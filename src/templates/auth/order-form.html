@@ -1,0 +1,21 @@
+{% extends 'auth/user.html' %} {% load static %} {% block content %}
+{% load crispy_forms_tags %}
+<div class="d-flex justify-content-center m-4">
+  <div class="card card-body">
+    <div class="d-flex justify-content-center">
+      <form method="POST" class="w-100">
+        <div class="form-group">
+          {% csrf_token %} {{form | crispy}}
+          <div class="d-flex justify-content-center mt-4">
+            <input
+              class="btn btn-primary "
+              type="submit"
+              name="Submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{%endblock%}

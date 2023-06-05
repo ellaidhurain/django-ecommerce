@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+
+
+    <title>Dashboard</title>
+  
+  </head>
+  <body style="background-color: #e8e8e829">
+  {% if  user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+      {% if request.user.is_admin %}
+      <a class="navbar-brand" href="/user">Admin dashboard</a>
+      <div class="navbar-nav">
+
+      <a class="nav-link" href="/product">Products</a>
+      <a class="nav-link" href="/account">
+          Settings
+        </a>
+        
+        {%else%}
+      
+        <a class="navbar-brand" href="/userPage">
+        Customer Dashboard
+        </a>
+        <div class="navbar-nav">
+        <a class="nav-link" href="/product">Products</a>
+        <a class="nav-link" href="/account">Settings</a>
+        {% endif %}
+      </div>
+
+     
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div
+        class="collapse navbar-collapse d-flex justify-content-end"
+        id="navbarNavAltMarkup"
+      >  
+      <span class="text-white">Hello,{{request.user.username}}</span>
+      <div class="navbar-nav">
+      <a class="nav-link btn btn-primary mx-2 p-1" href="/signout">Logout</a>
+     </div>         
+  </div>
+</nav>
+
+ 
+
+
+    
+    {% block content %}
+
+    {% endblock  %} 
+
+    {% endif %}
+
+   
+  
+  </body>
+</html>

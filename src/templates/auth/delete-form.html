@@ -1,0 +1,16 @@
+{% extends 'auth/user.html' %} {% load static %} {% block content %}
+<div class="d-flex justify-content-center align-items-center ">
+<div class="m-4 w-50 pl-5  ">
+  <div class="card card-body ">
+    <p class="d-flex justify-content-center">Are you sure you want to delete order "{{item}}" ?</p>
+
+    <form method="POST" class="d-flex p-2 justify-content-center">
+      {% csrf_token %}
+      <a class="btn btn-warning mr-2" href="{% url 'user' %}">Cancel</a>
+      <input class="btn btn-danger" type="submit" name="Delete" />
+    </form>
+  </div>
+</div>
+</div>
+
+{%endblock%}

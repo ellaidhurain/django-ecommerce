@@ -1,0 +1,120 @@
+{% extends 'auth/index.html' %}
+{% block content %}
+
+    <div class='d-flex justify-content-around mt-3 pt-3'>
+    <div class='col-md'>
+    <div class="card text-white bg-primary mb-3 ">
+      <div class="card-header text-center">Total Orders</div>
+      <div class="card-body ">
+        <h5 class="card-title text-center">{{total_orders}}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class='col-md'>
+    <div class="card text-white bg-warning  mb-3">
+      <div class="card-header text-center">Orders Pending</div>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{pending}}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class='col-md'>
+    <div class="card text-white bg-success mb-3 " >
+      <div class="card-header text-center">Orders delivered</div>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{delivered}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+   
+    
+ <div class='m-4 '> 
+  <div class="card card-body">
+  <div class='d-flex'>
+  <div class='col-5'>
+    <div class='d-flex justify-content-between p-2 '>
+    <h4>Customers</h4>
+    </div>
+    <div class="card card-body">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone_No</th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+          {%for data in customers%}
+          <tr>
+            <td>{{data.Customer_Name}}</td>
+            <td>{{data.Phone_No}}</td>
+            <!--url customer is name in urlpattern-->
+            <td><a class="btn btn-info py-1" href="{% url 'customer' data.id %}">view</a></td>
+          </tr>
+          {%endfor%}
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+    <div class='col-7'>
+      <div class='d-flex justify-content-between p-2 '>
+        <h4>Orders</h4>
+
+        </div>
+        <div class="card card-body">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Products</th>
+          <th scope="col">Date of Order</th>
+          <th scope="col">Status</th>
+          <th scope="col">Update</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          {% for data in orders %}
+          <tr>
+      
+            <td>{{data.Product_fk}}</td>
+            <td>{{data.CreatedDate}}</td>
+            {% if data.status == None%}
+            <td class='bg-info text-white'>Not updated</td>
+            {% endif %}            
+            {% if data.status == 'Delivered'%}
+            <td class='bg-success text-white'>{{data.status}}</td>
+            {% endif %}
+            {% if data.status == 'Pending'%}
+            <td class='bg-danger text-white'>{{data.status}}</td>
+            {% endif %}
+            {% if data.status == 'Out for delivery'%}
+            <td class='bg-warning'>{{data.status}}</td>
+            {% endif %}
+            <td><a class='btn btn-sm btn-info' href="{% url 'update_order' data.id %}">update</a></td>
+            <td><a class='btn btn-sm btn-danger' href="{% url 'delete_order' data.id %}">delete</a></td>
+
+          </tr>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+</div>
+  </div>
+
+    {% endblock  %} 
+
