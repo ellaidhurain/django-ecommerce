@@ -45,8 +45,8 @@ def admin_only(view_func):
     @wraps(view_func)
     def wrapper_func(request, *args, **kwargs):
             customer_orders  = request.user.customer_fk.order_set.all()
-            if customer_orders[0].status == 'Pending':
-                return HttpResponse('unauthorized')
+            # if customer_orders[0].status == 'Pending':
+            #     return HttpResponse('unauthorized')
             
             # find user is exist in group
             group = None
@@ -90,13 +90,13 @@ def my_logger(view_func):
     return wrapper
 
 
-@my_logger
-@my_timer
-def display_info(name,age):
-    time.sleep(1) # Python time sleep function is used to add delay in the execution of a program.
-    print('{},{}'.format(name,age))
+# @my_logger
+# @my_timer
+# def display_info(name,age):
+#     time.sleep(1) # Python time sleep function is used to add delay in the execution of a program.
+#     print('{},{}'.format(name,age))
 
-display_info('ellai', 25)  
+# display_info('ellai', 25)  
  
 
 

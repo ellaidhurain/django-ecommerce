@@ -12,6 +12,7 @@ urlpatterns = [
     path('user', views.user, name="user"),
     path('userPage', views.userPage, name="userPage"),
     path('product', views.product, name="product"),
+    path('delete_product/<int:product_id>', views.delete_product, name="delete_product"),
     path('customer/<str:pk>/', views.customer, name="customer"),
     path('customer/<str:pk>/create_order', views.create_order, name="create_order"),
     path('customer/<str:pk>/update_order', views.update_order, name="update_order"),

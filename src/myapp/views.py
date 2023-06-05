@@ -199,10 +199,19 @@ def user(request):
 @login_required
 @allowed_users(allowed_roles=['admin', 'customer'])
 def product(request):
-
-    products = Productdata_model.objects.all()
+    products = Productdata_model.objects.all().values()
+    print(products)
     return render(request, "auth/product.html", {'products': products})
 
+@login_required
+@allowed_users(allowed_roles=['admin', 'customer'])
+def delete_product(request, product_id):
+    product = Productdata_model.objects.get(id=product_id)
+    if request.method == 'DELETE':
+        # Delete the product if the request method is POST
+        product.delete()
+        # return redirect('product_list')  # Redirect to the product list page
+    return Response("success")
 
 @login_required
 @allowed_users(allowed_roles=['admin'])

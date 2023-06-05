@@ -160,7 +160,7 @@ const debounce = (fn, delay = 500) => {
 };
 
 form.addEventListener('input', debounce((e)=> {
-    switch (e.target.id) {
+    switch (e.target.name) {
         case 'username':
             checkUsername();
             break;
